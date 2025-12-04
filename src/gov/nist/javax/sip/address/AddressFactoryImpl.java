@@ -158,10 +158,10 @@ public class AddressFactoryImpl implements AddressFactoryEx {
             uriString.append("@");
         }
 
-        //if host is an IPv6 string we should enclose it in sq brackets
+        //if host is an IPv6 string we should enclose it in sq brackets and remove the scope identifier
         if (host.indexOf(':') != host.lastIndexOf(':')
             && host.trim().charAt(0) != '[')
-            host = '[' + host + ']';
+            host = '[' + host.split("%")[0] + ']';
 
         uriString.append(host);
 
