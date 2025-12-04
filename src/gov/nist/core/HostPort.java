@@ -89,7 +89,7 @@ public final class HostPort extends GenericObject {
             return false;
         }
         HostPort that = (HostPort) other;
-        return port == that.port && host.equals(that.host);
+        return port == this.encode().equals(that.encode());
     }
 
     /** get the Host field
